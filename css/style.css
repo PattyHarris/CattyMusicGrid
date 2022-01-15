@@ -35,3 +35,15 @@ aside {
     grid-area: sidebar;
 }
 
+
+/*=============================
+ Larger screens (e.g. default to mobile first).
+ =============================*/
+ @media only screen and (min-width: 600px) {
+
+    body {
+        grid-template-columns: 40px 1fr;
+        grid-template-areas: "sidebar content"
+                              "footer footer";
+    }
+ }
