@@ -15,24 +15,26 @@ body {
     min-height: 100vh;
     min-width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 90px;
-    grid-template-areas: "content"
+    grid-template-rows: 1fr 110px;      /* Footer needs to be 110 to allow*/
+    grid-template-areas: "content"      /* for a 90px image.  */
                           "footer";
+    font-family: 'Lato', sans-serif;
+    color: #222;
+    font-size: 0.8em;
 }
 
 .main {
-    background-color: #2c3e50;
     grid-area: content;
 }
 
 .footer {
-    background-color: #c0392b;
+    background-color: rgba(61, 100, 158, .9);
     grid-area: footer;
+    padding: 10px;
 }
 
 .aside {
-    color: rgba(255,255,255,0.8);
-    background-color: #7f8c8d;
+    background-color: #f2f2f2;
     grid-area: sidebar;
 }
 
@@ -49,28 +51,38 @@ img {
 }
 
 .main_header {
-    border: 1px solid red;
     display: grid;
+    background-color: #4e4e4e;
     color: rgba(255,255,255,0.9);
     grid-template-areas: "img"
                          "details"; 
+    margin-bottom: 10px;
+    padding: 20px;
 }
 
 .main_header > .img {
     grid-area: img;
-    border: 1px solid red;
 }
 
 .main_header > .details {
     grid-area: details;
-    border: 1px solid red;
+}
+
+.main_body {
+    padding: 8px;
+    background-color: #fff;
 }
 
 /* 
     Each div of the main body is a flex container 
 */
 .main_body > div {
+    padding: 8px;
     display: flex;
+}
+
+.main_body > div:nth-child(2n) {
+    background-color: #f2f2f2;;
 }
 
 /*
@@ -78,6 +90,77 @@ img {
 */
 .main_body > div p {
     flex: 0 0 25%;
+}
+
+/*
+    Details section of the main body
+*/
+.details {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    color: #fff;
+    padding-left: 50px;
+}
+
+/* Pushes the controls to the bottom of the main body. */
+.details div:nth-child(1) {
+    margin-bottom: auto;
+}
+
+/* Controls are the #2 child... */
+
+.details div:nth-child(2) {
+    margin-top: 0;
+}
+
+.details div:nth-child(2) i.fa {
+    font-size: 0.9rem;
+    padding: 0 0.07rem;
+    font-weight: 300;
+}
+
+/* Enlarges the title */
+.details div:nth-child(1) p:first-child {
+    font-size: 1.8rem;
+    margin: 0 0 10px;
+}
+
+/* Text under the title */
+.details div:nth-child(1) p:not(first-child) {
+    font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+/*
+    Footer
+*/
+.footer-body {
+    display: flex;
+    flex: 0 0 90px;  /* Don't grow or shrink - just stay at a height of 90px. */
+    color: #fff;
+}
+
+.catty-music-small {
+	display: flex;
+	margin-right: auto;
+}
+
+.catty-music-small img {
+	padding-right: 10px;
+    width: 90px;
+}
+
+.catty-music-controls {
+	justify-content: space-around;
+}
+
+/* Mobile first... */
+.catty-music-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
 }
 
 /*=============================
@@ -106,6 +189,9 @@ img {
         grid-template-areas: "img details"
     } 
 
+    .catty-music-controls {
+        justify-content: space-between;
+    }
  }
 
  /*=============================
@@ -120,12 +206,22 @@ img {
         text-align: center;
     }
 
+    .main_body > div p {
+        flex: 0 0 50%;
+    }
+
     .sm-hide {
         display: none;
-    } 
+    }
+
+    .sm-right-text {
+        text-align: right;
+    }
     
     .img > img {
         width: 150px
-    } 
+    }
+
+    
 }
   
